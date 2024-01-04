@@ -1,14 +1,28 @@
 package com.projetosrping.curso.entities;
 
+/**
+ * Classe Entidade do modelo de dominio
+ */
+
 import java.io.Serializable;
 import java.util.Objects;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 //Interface Serializable define que os objetos sejam transformados em cadeia de Bytes, permitindo que o objeto trafegue em arquivos, etc 
+@Entity
+@Table(name = "tb_user") //nome da tabela no banco (palavra User e uma palavra reservada do banco h2)
 public class User implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private String email;
