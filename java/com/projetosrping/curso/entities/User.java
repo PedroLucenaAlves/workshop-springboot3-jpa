@@ -24,11 +24,17 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String name;
 	private String email;
 	private String phone;
 	private String password;
 
+	//No Hibernate, você não pode usar um bean que não tenha um construtor sem argumentos. (Construtor padrão)
+	//Se eu remover esse construtor padrao, na hora da chamada rest da exception
+	public User() {
+		
+	}
 
 	public User(Long id, String name, String email, String phone, String password) {
 		super();
